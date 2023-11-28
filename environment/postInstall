@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -e
+
+#install samtools
+mamba install -y -c bioconda samtools && mamba clean -y --all
+
+#GATK install
+wget https://github.com/broadinstitute/gatk/releases/download/4.4.0.0/gatk-4.4.0.0.zip && unzip gatk-4.4.0.0.zip -d /opt/
+PATH=/opt/gatk-4.4.0.0:${PATH}
+export PATH=$PATH:/opt/gatk-4.4.0.0/
+rm gatk-4.4.0.0.zip
